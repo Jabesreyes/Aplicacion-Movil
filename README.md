@@ -5,7 +5,7 @@ Una aplicación movil para el Asilo de Santa Ana el cual permitira automatizar y
 
 ## Integrantes:
 - Jabes Alfredo Flores Reyes FR230108
-- 
+- Alexandra María Henríquez Miranda HM232507
 - 
 - 
 - 
