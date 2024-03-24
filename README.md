@@ -7,7 +7,7 @@ Una aplicación movil para el Asilo de Santa Ana el cual permitira automatizar y
 - Jabes Alfredo Flores Reyes FR230108
 - Alexandra María Henríquez Miranda HM232507
 - Jesus Alejandro Campos Landaverde CL212345
-- 
+- Eduardo Ronald Gomez Miguel GM212911
 - 
 
 ## Documento:
