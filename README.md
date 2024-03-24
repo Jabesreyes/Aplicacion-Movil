@@ -17,3 +17,7 @@ https://docs.google.com/document/d/1F_XpQzTZwfO8kHAfioLMsD0jb6JR79t1/edit?usp=sh
 ## Figma:
 
 ## Tipo de Licencias:
+
+https://www.behance.net/gallery/69828589/Asilo-de-ancianos-(Eleam-Delmi)?tracking_source=search_projects|asilo&l=185
+https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es
+
