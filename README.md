@@ -8,7 +8,7 @@ Una aplicación movil para el Asilo de Santa Ana el cual permitira automatizar y
 - Alexandra María Henríquez Miranda HM232507
 - Jesus Alejandro Campos Landaverde CL212345
 - Eduardo Ronald Gomez Miguel GM212911
-- 
+- Diego Alessandro Abarca Soto AS230109
 
 ## Documento:
 https://docs.google.com/document/d/1F_XpQzTZwfO8kHAfioLMsD0jb6JR79t1/edit?usp=sharing&ouid=100118146274556280176&rtpof=true&sd=true
