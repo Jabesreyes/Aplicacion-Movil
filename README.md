@@ -14,7 +14,8 @@ Una aplicación movil para el Asilo de Santa Ana el cual permitira automatizar y
 https://docs.google.com/document/d/1F_XpQzTZwfO8kHAfioLMsD0jb6JR79t1/edit?usp=sharing&ouid=100118146274556280176&rtpof=true&sd=true
 ## Thrello:
 
-## Figma:
+## Figma: 
+https://www.figma.com/file/uRevjAh29D35z1gGrlywag/Aplicaci%C3%B3n-movil---Asilo?type=design&node-id=0%3A1&mode=design&t=Q91lFNPPQY1oiOka-1
 
 ## Tipo de Licencias:
 
