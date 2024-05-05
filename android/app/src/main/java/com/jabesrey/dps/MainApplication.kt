@@ -1,4 +1,4 @@
-package com.dps
+package com.jabesrey.dps
 
 import android.app.Application
 import com.facebook.react.PackageList

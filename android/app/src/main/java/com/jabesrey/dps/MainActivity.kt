@@ -1,4 +1,4 @@
-package com.dps
+package com.jabesrey.dps
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

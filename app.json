@@ -1,4 +1,18 @@
 {
   "name": "DPS",
-  "displayName": "DPS"
+  "displayName": "DPS",
+  "android": {
+    "package": "com.anonymous.dps"
+  },
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "e14020a0-79fc-4c53-ae62-8ea7a6e40619"
+      }
+    },
+    "android": {
+      "package": "com.jabesrey.dps"
+    }
+  },
+  "scheme": "navigation-test"
 }
