@@ -116,7 +116,7 @@ const SignUp = () => {
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             contentFit="cover"
-            source={require("../assets/vector@3x.png")}
+            source={require("../assets/vector@3x.png ")}
           />
           <TouchableOpacity onPress={toggleMostrarConfirmarContrasena}>
             <Image

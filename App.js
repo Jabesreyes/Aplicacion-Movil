@@ -18,7 +18,7 @@ const App = () => {
     "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
     "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
     "Nunito-Bold": require("./assets/fonts/Nunito-Bold.ttf"),
-    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
+    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf "),
     "Inter-Bold": require("./assets/fonts/Inter-Bold.ttf"),
   });
 

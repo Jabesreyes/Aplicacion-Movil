@@ -62,7 +62,7 @@ const Profile = ({ route, navigation }) => {
               <Image
                 style={styles.avatarIcon}
                 contentFit="cover"
-                source={require('../assets/-avatar@3x.png')}
+                source={require('../assets/-avatar@3x.png ')}
               />
             </View>
 
