@@ -1,145 +1,173 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text } from "react-native";
-import { FontSize, Border, FontFamily, Color, Padding } from "../GlobalStyles";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { FontSize, Border, FontFamily, Color, Padding } from "../globalStyles";
+import react, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import firestore from '@react-native-firebase/firestore';
+import { withNavigation } from '@react-navigation/compat';
+
 
 const SignUp = () => {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [contrasena, setContrasena] = useState('');
+  const [confirmarContrasena, setConfirmarContrasena] = useState('');
+  const navigation = useNavigation();
+
+  const [mostrarContrasena, setMostrarContrasena] = useState(false);
+  const [mostrarConfirmarContrasena, setMostrarConfirmarContrasena] = useState(false);
+
+  const toggleMostrarContrasena = () => {
+    setMostrarContrasena(!mostrarContrasena);
+  };
+
+  const toggleMostrarConfirmarContrasena = () => {
+    setMostrarConfirmarContrasena(!mostrarConfirmarContrasena);
+  };
+
+  const handleRegistrar = () => {
+    navigation.navigate('Profile');
+    navigation.navigate('Profile', { nombre: nombre, correo: correo });
+  };
+
+
   return (
     <View style={styles.signUp}>
-      <View style={styles.statusBarIphoneXOrNewe}>
-        <Image
-          style={[styles.notchIcon, styles.iconPosition]}
-          contentFit="cover"
-          source={require("../assets/notch1.png")}
-        />
-        <View style={styles.rightSide}>
-          <Image
-            style={styles.batteryIcon}
-            contentFit="cover"
-            source={require("../assets/battery1.png")}
-          />
-          <Image
-            style={styles.wifiIcon}
-            contentFit="cover"
-            source={require("../assets/wifi1.png")}
-          />
-          <Image
-            style={styles.mobileSignalIcon}
-            contentFit="cover"
-            source={require("../assets/mobile-signal1.png")}
-          />
-          <Image
-            style={[styles.recordingIndicatorIcon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/recording-indicator.png")}
-          />
-        </View>
-        <Image
-          style={styles.leftSideIcon}
-          contentFit="cover"
-          source={require("../assets/left-side.png")}
-        />
-      </View>
       <Text style={[styles.version100, styles.labelTypo1]}>Version 1.0.0</Text>
       <View style={[styles.frame, styles.frameLayout]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
-          <Text style={[styles.nombre, styles.nombreLayout]}>Nombre</Text>
+          <TextInput
+            style={[styles.nombre, styles.nombreLayout]}
+            value={nombre}
+            onChangeText={text => setNombre(text)}
+            placeholder="Nombre"
+          />
           <Image
             style={[styles.ionsearchSharpIcon, styles.nombreLayout]}
             contentFit="cover"
-            source={require("../assets/ionsearchsharp.png")}
+            source={require("../assets/ionsearchsharp@3x.png")}
           />
         </View>
       </View>
+    <View style={styles.container}>
       <View style={[styles.frame1, styles.frameLayout]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
-          <Text style={[styles.nombre, styles.nombreLayout]}>Correo</Text>
+          <TextInput
+            style={[styles.nombre, styles.nombreLayout]}
+            value={correo}
+            onChangeText={text => setCorreo(text)}
+            placeholder="Correo electrónico"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
           <Image
             style={[styles.ionsearchSharpIcon, styles.nombreLayout]}
             contentFit="cover"
-            source={require("../assets/ionsearchsharp1.png")}
+            source={require("../assets/ionsearchsharp1@3x.png")}
           />
         </View>
       </View>
+    </View>
+    <View style={styles.container}>
       <View style={[styles.frame2, styles.framePosition]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
           <Text style={[styles.nombre, styles.nombreLayout]}>Contraseña</Text>
+          <TextInput
+            style={[styles.contrasenaInput, styles.nombreLayout]}
+            value={contrasena}
+            onChangeText={text => setContrasena(text)}
+            placeholder=" "
+            secureTextEntry={!mostrarContrasena}
+          />
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             contentFit="cover"
-            source={require("../assets/vector.png")}
+            source={require("../assets/vector@3x.png")}
           />
-          <Image
-            style={[styles.visibilityIcon, styles.visibilityIconLayout]}
-            contentFit="cover"
-            source={require("../assets/visibility.png")}
-          />
+          <TouchableOpacity onPress={toggleMostrarContrasena}>
+            <Image
+              style={[styles.visibilityIcon, styles.visibilityIconLayout]}
+              contentFit="cover"
+              source={mostrarContrasena ? require("../assets/vector1@3x.png") : require("../assets/visibility@3x.png")}
+            />
+          </TouchableOpacity>
         </View>
       </View>
-      <Image
-        style={[styles.vectorIcon1, styles.vectorIconLayout]}
-        contentFit="cover"
-        source={require("../assets/vector1.png")}
-      />
-      <Image
-        style={[styles.vectorIcon2, styles.vectorIconLayout]}
-        contentFit="cover"
-        source={require("../assets/vector1.png")}
-      />
+     <View style={styles.container}>
       <View style={[styles.frame3, styles.framePosition]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
           <Text style={[styles.nombre, styles.nombreLayout]}>
             Confirmar contraseña
           </Text>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={[styles.contrasenaInput, styles.inputLayout]}
+              value={confirmarContrasena}
+              onChangeText={text => setConfirmarContrasena(text)}
+              placeholder=" "
+              secureTextEntry={!mostrarConfirmarContrasena}
+            />
+          </View>
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             contentFit="cover"
-            source={require("../assets/vector.png")}
+            source={require("../assets/vector@3x.png")}
           />
-          <Image
-            style={[styles.visibilityIcon, styles.visibilityIconLayout]}
-            contentFit="cover"
-            source={require("../assets/visibility.png")}
-          />
+          <TouchableOpacity onPress={toggleMostrarConfirmarContrasena}>
+            <Image
+              style={[styles.visibilityIcon, styles.visibilityIconLayout]}
+              contentFit="cover"
+              source={mostrarConfirmarContrasena ? require("../assets/vector1@3x.png") : require("../assets/visibility@3x.png")}
+            />
+          </TouchableOpacity>
         </View>
       </View>
+
+    <View style={styles.container}>
       <Text style={[styles.registroDeUsuario, styles.labelTypo]}>
         Registro de Usuario
       </Text>
       <View style={[styles.buttons, styles.insideFlexBox]}>
-        <View style={styles.insideFlexBox}>
-          <Image
-            style={styles.chevronIconLayout}
-            contentFit="cover"
-            source={require("../assets/chevronleft.png")}
-          />
-          <Text style={[styles.label, styles.labelTypo]}>Registrar</Text>
-          <Image
-            style={[styles.chevronRightIcon, styles.chevronIconLayout]}
-            contentFit="cover"
-            source={require("../assets/chevronright.png")}
-          />
-        </View>
+        <TouchableOpacity onPress={handleRegistrar}>
+          <View style={styles.insideFlexBox}>
+            <Image
+              style={styles.chevronIconLayout}
+              contentFit="cover"
+              source={require("../assets/chevronleft@3x.png")}
+            />
+            <Text style={[styles.label, styles.labelTypo, styles.registrarText]}>Registrar</Text>
+            <Image
+              style={[styles.chevronRightIcon, styles.chevronIconLayout]}
+              contentFit="cover"
+              source={require("../assets/chevronright@3x.png")}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
+    </View>
       </View>
       <Image
         style={[styles.iconmdiArrowBack, styles.visibilityIconLayout]}
         contentFit="cover"
-        source={require("../assets/iconmdi-arrow-back.png")}
+        source={require("../assets/iconmdi-arrow-back@3x.png")}
       />
       <Text
         style={[styles.yaEresMienbroContainer, styles.registroDeUsuarioFlexBox]}
       >
-        <Text style={styles.yaEresMienbro}>{`¿Ya eres mienbro? `}</Text>
+        <Text style={styles.yaEresMienbro}>{`¿Ya eres miembro? `}</Text>
         <Text style={styles.ingresa}>Ingresa</Text>
       </Text>
     </View>
   );
 };
 
+//------------------------------------------------ESTILOS------------------------------------------------
 const styles = StyleSheet.create({
   iconPosition: {
     display: "none",
@@ -164,6 +192,7 @@ const styles = StyleSheet.create({
     height: "100%",
     position: "absolute",
     width: "100%",
+    flexDirection: 'row',
   },
   nombreLayout: {
     opacity: 0.8,
@@ -186,6 +215,11 @@ const styles = StyleSheet.create({
     width: 24,
     position: "absolute",
     overflow: "hidden",
+  },
+  contrasenaInput: {
+    flex: 1,
+    position: "center",
+    marginLeft: 38
   },
   vectorIconLayout: {
     left: "88.8%",
@@ -214,58 +248,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     position: "absolute",
   },
-  notchIcon: {
-    top: -2,
-    right: 78,
-    bottom: 16,
-    left: 78,
-    maxHeight: "100%",
-    maxWidth: "100%",
-    overflow: "hidden",
-  },
-  batteryIcon: {
-    right: 0,
-    width: 24,
-    height: 11,
-    top: 0,
-    position: "absolute",
-  },
-  wifiIcon: {
-    width: 15,
-    height: 11,
-  },
-  mobileSignalIcon: {
-    width: 17,
-    height: 11,
-  },
-  recordingIndicatorIcon: {
-    top: -9,
-    right: 56,
-    width: 6,
-    height: 6,
-  },
-  rightSide: {
-    top: 17,
-    right: 15,
-    width: 67,
-    height: 11,
-    position: "absolute",
-  },
-  leftSideIcon: {
-    top: 12,
-    left: 21,
-    width: 54,
-    height: 21,
-    position: "absolute",
-  },
-  statusBarIphoneXOrNewe: {
-    left: 0,
-    width: 375,
-    height: 44,
-    top: 0,
-    position: "absolute",
-    overflow: "hidden",
-  },
+
   version100: {
     top: 772,
     left: 135,
@@ -317,7 +300,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   visibilityIcon: {
-    left: 234,
+    left: 178,
     top: 10,
     height: 24,
   },
@@ -354,16 +337,17 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   buttons: {
-    top: 587,
-    left: 144,
+    top: 550,
+    left: 130,
     borderRadius: Border.br_9xs,
     backgroundColor: "#1fb9fc",
     height: 36,
     justifyContent: "center",
-    paddingHorizontal: Padding.p_xs,
-    paddingVertical: Padding.p_base,
+    padding: 20,
+    width: 110,
     position: "absolute",
-    overflow: "hidden",
+    alignItems: 'center',
+    flex: 1,
   },
   iconmdiArrowBack: {
     top: 53,
@@ -389,6 +373,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
   },
+  registrarText: {
+    color: 'white',
+    position: 'absolute',
+    alignItems: "center",
+  },
 });
 
-export default SignUp;
+export default withNavigation(SignUp);

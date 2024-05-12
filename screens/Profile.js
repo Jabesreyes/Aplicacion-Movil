@@ -1,191 +1,149 @@
-import * as React from "react";
-import { Text, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
-import { FontSize, Color, FontFamily, Padding, Border } from "../GlobalStyles";
+import * as React from 'react';
+import react, { useState } from 'react';
+import {
+  Text,
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  BackHandler,
+} from 'react-native';
+import { Image } from 'expo-image';
+import { FontSize, Color, FontFamily, Padding, Border } from '../globalStyles';
 
-const Profile = () => {
+const Profile = ({ route, navigation }) => {
+  const { nombre, correo } = route.params;
+  const [nuevoCorreo, setNuevoCorreo] = useState('');
+  const [contrasena, setContrasena] = useState('');
+  const [esContrasenaVisible, setEsContrasenaVisible] = useState(false);
+
+
+  const toggleVisibilidadContrasena = () => {
+    setEsContrasenaVisible(!esContrasenaVisible);
+  };
+
+  const aceptarCambios = () => {
+    setNuevoCorreo(nuevoCorreo);
+  };
+
+  const cancelarCambios = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={styles.profile}>
       <Text style={styles.version100}>Version 1.0.0</Text>
       <View style={styles.opcionesWrapper}>
         <View style={styles.opciones}>
-          <Text style={[styles.cambiarContrasea, styles.correoTypo]}>
-            Correo actual
+          <Text style={[styles.correoActual, styles.correoTypo]}>
+            Correo actual correo actual label
           </Text>
           <Text style={[styles.cambiarCorreo, styles.correoTypo]}>
-            Cambiar correo
+            Cambiar correo cambiar correo label
           </Text>
           <View
-            style={[styles.bLeadingIconaInactivedi, styles.leadingPosition1]}
-          >
+            style={[styles.bLeadingIconaInactivedi, styles.leadingPosition1]}>
             <View style={[styles.autolayout, styles.textFieldFlexBox]}>
-              <Image
-                style={[styles.leadingIcon, styles.iconLayout]}
-                contentFit="cover"
-                source={require("../assets/leading-icon.png")}
-              />
-              <Text style={styles.inputText}>Label</Text>
-              <Image
-                style={[styles.trailingIcon, styles.iconLayout]}
-                contentFit="cover"
-                source={require("../assets/trailing-icon.png")}
-              />
-            </View>
-            <View style={styles.assistive}>
-              <Text style={styles.assistiveText}>Disabled</Text>
+              <Text style={styles.inputText}>{correo}</Text>
             </View>
           </View>
           <View
-            style={[styles.bLeadingIconaInactivedi1, styles.leadingPosition1]}
-          >
+            style={[styles.bLeadingIconaInactivedi1, styles.leadingPosition1]}>
             <View style={[styles.autolayout, styles.textFieldFlexBox]}>
-              <Image
-                style={[styles.leadingIcon, styles.iconLayout]}
-                contentFit="cover"
-                source={require("../assets/leading-icon.png")}
-              />
-              <Text style={styles.inputText}>Label</Text>
-              <Image
-                style={[styles.trailingIcon, styles.iconLayout]}
-                contentFit="cover"
-                source={require("../assets/trailing-icon.png")}
-              />
-            </View>
-            <View style={styles.assistive}>
-              <Text style={styles.assistiveText}>Disabled</Text>
+              <Text style={styles.inputText}>{nombre}</Text>
             </View>
           </View>
-          <Text style={[styles.correoActual, styles.correoTypo]}>
-            cambiar contraseña
+          <Text style={[styles.cambiarContrasea, styles.correoTypo]}>
+            cambiar contraseña label
           </Text>
+
           <View style={styles.twoLinebWithImage}>
             <View style={[styles.textField, styles.textFieldFlexBox]}>
               <Image
                 style={styles.avatarIcon}
                 contentFit="cover"
-                source={require("../assets/-avatar.png")}
+                source={require('../assets/-avatar@3x.png')}
               />
-              <Text style={styles.body2}>
-                Es posible que algunos datos de la cuenta y del sistema
-                operativo se envie al centro de soporte de acuerdo a nuestras
-                politicas de privacidad
-              </Text>
             </View>
+
             <View style={styles.buttons}>
-              <View style={styles.buttonFlexBox}>
-                <Text style={styles.label}>Aceptar</Text>
-              </View>
-              <View style={[styles.button1, styles.buttonFlexBox]}>
-                <Text style={styles.label}>Cancelar</Text>
-              </View>
-            </View>
-            <View style={styles.divider}>
-              <View style={[styles.divider1, styles.label2Position]} />
+              <TouchableOpacity
+                onPress={aceptarCambios}
+                disabled={!nuevoCorreo}>
+                <View style={styles.buttonFlexBox}>
+                  <Text
+                    style={[
+                      styles.label,
+                      { color: 'gray' },
+                    ]}>
+                    Aceptar
+                  </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={cancelarCambios}>
+                <View style={[styles.button1, styles.buttonFlexBox]}>
+                  <Text style={styles.label}>Cancelar</Text>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
-          <Text style={[styles.dui, styles.correoTypo]}>DUI</Text>
+
+          <Text style={[styles.dui, styles.correoTypo]}>
+            Nombre nombre label
+          </Text>
         </View>
       </View>
+
       <View style={[styles.bLeadingIconcFocusederr, styles.leadingPosition]}>
         <View style={[styles.autolayout2, styles.autolayoutPosition]}>
-          <Image
-            style={[styles.leadingIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/leading-icon1.png")}
-          />
           <View style={styles.autolayout3}>
             <View style={styles.inputAutolayout}>
-              <Text style={styles.inputText2}>Input text</Text>
+              <TextInput
+                style={styles.inputText2}
+                placeholder="Ingrese su nuevo correo"
+                value={nuevoCorreo}
+                onChangeText={setNuevoCorreo}
+              />
               <View style={styles.cursor} />
             </View>
-            <Text style={[styles.label2, styles.label2Typo]}>Label</Text>
           </View>
-          <Image
-            style={[styles.trailingIcon2, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/trailing-icon1.png")}
-          />
-        </View>
-        <View style={styles.indicator} />
-        <View style={styles.assistive}>
-          <Text style={styles.label2Typo}>Activated</Text>
         </View>
       </View>
       <View style={[styles.bLeadingIconcFocusederr1, styles.leadingPosition]}>
         <View style={[styles.autolayout2, styles.autolayoutPosition]}>
-          <Image
-            style={[styles.leadingIcon, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/leading-icon1.png")}
-          />
-          <View style={styles.autolayout3}>
-            <View style={styles.inputAutolayout}>
-              <Text style={styles.inputText2}>Input text</Text>
-              <View style={styles.cursor} />
+          <View style={styles.container}>
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.inputText2}
+                placeholder="Ingrese nueva contraseña"
+                secureTextEntry={!esContrasenaVisible}
+                value={contrasena}
+                onChangeText={setContrasena}
+              />
+              <TouchableOpacity onPress={toggleVisibilidadContrasena}>
+                <Image
+                  style={[styles.trailingIcon2, styles.iconLayout]}
+                  contentFit="cover"
+                  source={
+                    esContrasenaVisible
+                      ? require('../assets/vector1@3x.png')
+                      : require('../assets/trailing-icon1@3x.png')
+                  }
+                />
+              </TouchableOpacity>
             </View>
-            <Text style={[styles.label2, styles.label2Typo]}>Label</Text>
           </View>
-          <Image
-            style={[styles.trailingIcon2, styles.iconLayout]}
-            contentFit="cover"
-            source={require("../assets/trailing-icon1.png")}
-          />
-        </View>
-        <View style={styles.indicator} />
-        <View style={styles.assistive}>
-          <Text style={styles.label2Typo}>Activated</Text>
         </View>
       </View>
+
       <View style={styles.profileInner}>
-        <View>
-          <Text style={styles.hello}>Hello,</Text>
-          <Text style={styles.hiJames}>Hi James</Text>
-        </View>
-      </View>
-      <Image
-        style={styles.frameIcon}
-        contentFit="cover"
-        source={require("../assets/frame.png")}
-      />
-      <View style={[styles.statusBarIphone1313Pr, styles.profileChildPosition]}>
-        <Image
-          style={styles.notchIcon}
-          contentFit="cover"
-          source={require("../assets/notch.png")}
-        />
-        <View style={[styles.rightSide, styles.iconPosition]}>
-          <Image
-            style={[styles.batteryIcon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/battery.png")}
-          />
-          <Image
-            style={[styles.wifiIcon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/wifi.png")}
-          />
-          <Image
-            style={[styles.mobileSignalIcon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/mobile-signal.png")}
-          />
-        </View>
-        <View style={[styles.leftSide, styles.timeLayout]}>
-          <View style={[styles.time, styles.timeLayout]}>
-            <Text style={styles.text}>9:41</Text>
+        <View style={styles.profileInner}>
+          <View>
+            <Text style={styles.hello}>Bienvenido,</Text>
+            <Text style={styles.hiJames}>Hola {nombre}</Text>
           </View>
         </View>
       </View>
-      <Image
-        style={[styles.profileChild, styles.profileChildPosition]}
-        contentFit="cover"
-        source={require("../assets/group-1707478165.png")}
-      />
-      <Image
-        style={[styles.iconmdiArrowBack, styles.iconLayout]}
-        contentFit="cover"
-        source={require("../assets/iconmdi-arrow-back.png")}
-      />
     </View>
   );
 };
@@ -195,20 +153,20 @@ const styles = StyleSheet.create({
     width: 313,
     fontSize: FontSize.defaultBoldSubheadline_size,
     height: 44,
-    textAlign: "left",
+    textAlign: 'left',
     color: Color.labelColorLightPrimary,
     fontFamily: FontFamily.poppinsRegular,
-    position: "absolute",
+    position: 'absolute',
   },
   leadingPosition1: {
-    width: "100.31%",
-    top: "50%",
-    position: "absolute",
+    width: '100.31%',
+    top: '50%',
+    position: 'absolute',
   },
   textFieldFlexBox: {
     padding: Padding.p_base,
-    flexDirection: "row",
-    alignSelf: "stretch",
+    flexDirection: 'row',
+    alignSelf: 'stretch',
   },
   iconLayout: {
     height: 24,
@@ -218,23 +176,23 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_3xs,
     paddingHorizontal: Padding.p_5xs,
     borderRadius: Border.br_9xs,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   label2Position: {
-    left: "0%",
-    position: "absolute",
+    left: '0%',
+    position: 'absolute',
   },
   leadingPosition: {
-    width: "87.47%",
-    top: "50%",
-    position: "absolute",
+    width: '87.47%',
+    top: '50%',
+    position: 'absolute',
   },
   autolayoutPosition: {
     borderTopRightRadius: Border.br_9xs,
     borderTopLeftRadius: Border.br_9xs,
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: Color.surfaceOverlay,
   },
   label2Typo: {
@@ -242,48 +200,48 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontFamily: FontFamily.body2,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     fontSize: FontSize.caption_size,
   },
   profileChildPosition: {
     width: 375,
     left: 0,
-    position: "absolute",
+    position: 'absolute',
   },
   iconPosition: {
     height: 11,
-    left: "50%",
-    position: "absolute",
+    left: '50%',
+    position: 'absolute',
   },
   timeLayout: {
     height: 21,
     width: 54,
-    left: "50%",
-    position: "absolute",
+    left: '50%',
+    position: 'absolute',
   },
   version100: {
     top: 704,
     left: 159,
     width: 81,
     height: 44,
-    textAlign: "left",
+    textAlign: 'left',
     color: Color.labelColorLightPrimary,
     fontFamily: FontFamily.poppinsRegular,
     fontSize: FontSize.caption_size,
-    position: "absolute",
+    position: 'absolute',
   },
   cambiarContrasea: {
-    top: 98,
+    top: 260,
     left: -3,
     fontSize: FontSize.defaultBoldSubheadline_size,
   },
   cambiarCorreo: {
-    top: 184,
+    top: 180,
     left: -3,
     fontSize: FontSize.defaultBoldSubheadline_size,
   },
   leadingIcon: {
-    display: "none",
+    display: 'none',
   },
   inputText: {
     marginLeft: 14,
@@ -292,14 +250,14 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     letterSpacing: 0,
     fontSize: FontSize.subtitle1_size,
-    textAlign: "left",
+    textAlign: 'left',
     flex: 1,
   },
   trailingIcon: {
     marginLeft: 14,
   },
   autolayout: {
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: Color.surfaceOverlay,
     borderTopRightRadius: Border.br_9xs,
     borderTopLeftRadius: Border.br_9xs,
@@ -309,30 +267,30 @@ const styles = StyleSheet.create({
     color: Color.onSurfaceDisabled,
     fontFamily: FontFamily.body2,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     fontSize: FontSize.caption_size,
   },
   assistive: {
     paddingLeft: Padding.p_base,
     paddingTop: Padding.p_9xs,
-    display: "none",
-    flexDirection: "row",
-    alignSelf: "stretch",
+    display: 'none',
+    flexDirection: 'row',
+    alignSelf: 'stretch',
   },
   bLeadingIconaInactivedi: {
     marginTop: -28,
-    right: "2.75%",
-    left: "-3.06%",
-    top: "50%",
+    right: '2.75%',
+    left: '-3.06%',
+    top: '50%',
   },
   bLeadingIconaInactivedi1: {
     marginTop: -114,
-    right: "0.61%",
-    left: "-0.92%",
-    top: "50%",
+    right: '0.61%',
+    left: '-0.92%',
+    top: '50%',
   },
   correoActual: {
-    top: 270,
+    top: 100,
     left: -3,
     fontSize: FontSize.defaultBoldSubheadline_size,
   },
@@ -347,19 +305,19 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontFamily: FontFamily.body2,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     flex: 1,
   },
   textField: {
-    display: "none",
+    display: 'none',
   },
   label: {
     letterSpacing: 1,
-    textTransform: "uppercase",
-    fontWeight: "500",
+    textTransform: 'uppercase',
+    fontWeight: '500',
     fontFamily: FontFamily.button,
     color: Color.primary500,
-    textAlign: "center",
+    textAlign: 'center',
     lineHeight: 16,
     fontSize: FontSize.defaultBoldSubheadline_size,
   },
@@ -368,27 +326,27 @@ const styles = StyleSheet.create({
   },
   buttons: {
     paddingBottom: Padding.p_5xs,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   divider1: {
     marginTop: -0.5,
-    right: "0%",
+    right: '0%',
     height: 1,
     backgroundColor: Color.surfaceOverlay,
-    top: "50%",
-    width: "100%",
+    top: '50%',
+    width: '100%',
   },
   divider: {
     width: 360,
     height: 1,
-    display: "none",
+    display: 'none',
   },
   twoLinebWithImage: {
     top: 375,
     right: 79,
-    alignItems: "flex-end",
-    justifyContent: "center",
-    position: "absolute",
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    position: 'absolute',
     backgroundColor: Color.surface,
   },
   dui: {
@@ -403,7 +361,7 @@ const styles = StyleSheet.create({
     top: 263,
     left: 27,
     width: 327,
-    position: "absolute",
+    position: 'absolute',
   },
   inputText2: {
     color: Color.onSurfaceHighEmphasis,
@@ -411,7 +369,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     letterSpacing: 0,
     fontSize: FontSize.subtitle1_size,
-    textAlign: "left",
+    textAlign: 'left',
   },
   cursor: {
     width: 1,
@@ -423,88 +381,88 @@ const styles = StyleSheet.create({
     top: 14,
     width: 262,
     left: 0,
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute",
+    alignItems: 'center',
+    flexDirection: 'row',
+    position: 'absolute',
   },
   label2: {
-    width: "48.66%",
+    width: '48.66%',
     top: 0,
-    left: "0%",
-    position: "absolute",
+    left: '0%',
+    position: 'absolute',
   },
   autolayout3: {
     height: 38,
-    marginLeft: 10,
+    marginLeft: 8,
     flex: 1,
   },
   trailingIcon2: {
-    marginLeft: 10,
+    marginLeft: 15,
   },
   autolayout2: {
     paddingHorizontal: Padding.p_base,
     paddingVertical: Padding.p_5xs,
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
     backgroundColor: Color.surfaceOverlay,
-    alignSelf: "stretch",
+    alignSelf: 'stretch',
   },
   indicator: {
     height: 2,
     backgroundColor: Color.error,
-    alignSelf: "stretch",
+    alignSelf: 'stretch',
   },
   bLeadingIconcFocusederr: {
     marginTop: 68,
-    right: "8%",
-    left: "4.53%",
+    right: '8%',
+    left: '4.53%',
   },
   bLeadingIconcFocusederr1: {
     marginTop: 149,
-    right: "7.2%",
-    left: "5.33%",
+    right: '7.2%',
+    left: '5.33%',
   },
   hello: {
     lineHeight: 19,
-    color: "#8696bb",
+    color: '#8696bb',
     fontSize: FontSize.subtitle1_size,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.poppinsRegular,
   },
   hiJames: {
     fontSize: FontSize.header3_size,
     lineHeight: 22,
-    fontWeight: "700",
+    fontWeight: '700',
     fontFamily: FontFamily.poppinsBold,
     color: Color.colorGray_100,
     marginTop: 6,
-    textAlign: "left",
+    textAlign: 'left',
   },
   profileInner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: 327,
+    position: 'absolute',
     top: 60,
     left: 8,
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-    width: 327,
-    position: "absolute",
   },
   frameIcon: {
     top: 123,
     left: 132,
     width: 90,
     height: 81,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   notchIcon: {
     marginLeft: -81.5,
     top: -2,
     width: 164,
     height: 31,
-    left: "50%",
-    display: "none",
-    position: "absolute",
+    left: '50%',
+    display: 'none',
+    position: 'absolute',
   },
   batteryIcon: {
     marginLeft: 8.95,
@@ -529,17 +487,17 @@ const styles = StyleSheet.create({
   },
   text: {
     top: 1,
-    fontWeight: "600",
+    fontWeight: '600',
     fontFamily: FontFamily.defaultBoldSubheadline,
     height: 20,
     width: 54,
     left: 0,
-    textAlign: "center",
+    textAlign: 'center',
     lineHeight: 20,
     letterSpacing: 0,
     fontSize: FontSize.defaultBoldSubheadline_size,
     color: Color.labelColorLightPrimary,
-    position: "absolute",
+    position: 'absolute',
   },
   time: {
     marginLeft: -27,
@@ -553,7 +511,7 @@ const styles = StyleSheet.create({
   statusBarIphone1313Pr: {
     top: 0,
     height: 44,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   profileChild: {
     top: 736,
@@ -562,13 +520,13 @@ const styles = StyleSheet.create({
   iconmdiArrowBack: {
     top: 44,
     left: 33,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   profile: {
     height: 812,
-    overflow: "hidden",
-    width: "100%",
+    overflow: 'hidden',
+    width: '100%',
     flex: 1,
     backgroundColor: Color.surface,
   },
