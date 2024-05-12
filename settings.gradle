@@ -1,0 +1,3 @@
+project(':build.gradle').projectDir = new File(rootDir, 'Aplicacion-Movil/android')
+include ':app'
+include ':build.gradle'
