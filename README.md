@@ -102,5 +102,5 @@ https://udbedu-my.sharepoint.com/:b:/g/personal/hm232507_alumno_udb_edu_sv/EUXzJ
 ## Manual Tecnico:
 https://udbedu-my.sharepoint.com/:b:/g/personal/fr230108_alumno_udb_edu_sv/ES0uNa8qOe5AmSXDms7uQ1cBIfk4AIGMy0yKEdN6c0keig?e=VADNpl
 
-##Videos Fase 2:
-https://udbedu-my.sharepoint.com/:f:/g/personal/hm232507_alumno_udb_edu_sv/ErcIjLyrwadBmBL-snAYXSIB8sGD55H7lQCCoYGYACbGJg?e=hHMJRh
+## Video explicativo:
+https://udbedu-my.sharepoint.com/:f:/g/personal/hm232507_alumno_udb_edu_sv/ErcIjLyrwadBmBL-snAYXSIB8sGD55H7lQCCoYGYACbGJg?e=hgXKJO
