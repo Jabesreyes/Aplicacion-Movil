@@ -100,3 +100,6 @@ https://www.behance.net/gallery/69828589/Asilo-de-ancianos-(Eleam-Delmi)?trackin
 
 ## Manual de Usuario:
 https://udbedu-my.sharepoint.com/:b:/g/personal/hm232507_alumno_udb_edu_sv/EUXzJ1fjjxREkSZrfTJ45FsBy_rRlkc3qu_CPiTX3cyz-A?e=bjIj0j
+
+## Manual Tecnico:
+https://udbedu-my.sharepoint.com/:b:/g/personal/fr230108_alumno_udb_edu_sv/ES0uNa8qOe5AmSXDms7uQ1cBIfk4AIGMy0yKEdN6c0keig?e=VADNpl
