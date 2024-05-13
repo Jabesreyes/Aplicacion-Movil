@@ -16,7 +16,6 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="com.anonymous.dps"/>
         <data android:scheme="com.jabesrey.dps"/>
         <data android:scheme="exp+dps"/>
       </intent-filter>
