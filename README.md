@@ -82,8 +82,6 @@ Para obtener más información sobre React Native, consulte los siguientes recur
   ## Integrantes:
 - Jabes Alfredo Flores Reyes FR230108
 - Alexandra María Henríquez Miranda HM232507
-- Jesus Alejandro Campos Landaverde CL212345
-- Eduardo Ronald Gomez Miguel GM212911
 - Diego Alessandro Abarca Soto AS230109
 
 ## Documento:
@@ -103,3 +101,6 @@ https://udbedu-my.sharepoint.com/:b:/g/personal/hm232507_alumno_udb_edu_sv/EUXzJ
 
 ## Manual Tecnico:
 https://udbedu-my.sharepoint.com/:b:/g/personal/fr230108_alumno_udb_edu_sv/ES0uNa8qOe5AmSXDms7uQ1cBIfk4AIGMy0yKEdN6c0keig?e=VADNpl
+
+##Videos Fase 2:
+https://udbedu-my.sharepoint.com/:f:/g/personal/hm232507_alumno_udb_edu_sv/ErcIjLyrwadBmBL-snAYXSIB8sGD55H7lQCCoYGYACbGJg?e=hHMJRh
