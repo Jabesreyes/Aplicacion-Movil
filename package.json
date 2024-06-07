@@ -10,9 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@expo/vector-icons": "^14.0.0",
     "@react-native-async-storage/async-storage": "1.21.0",
     "@react-native-vector-icons/ionicons": "^7.3.1-alpha.9",
+=======
+    "@react-native-async-storage/async-storage": "1.21.0",
+>>>>>>> d4f6541020528a58d7d0af5e92c5b66b3f53ba83
     "@react-navigation/stack": "^6.3.29",
     "expo": "^50.0.17",
     "expo-application": "~5.8.4",
@@ -22,6 +26,7 @@
     "expo-web-browser": "~12.8.2",
     "firebase": "^10.11.1",
     "react": "18.2.0",
+<<<<<<< HEAD
     "react-icons": "^5.2.1",
     "react-native": "0.73.6",
     "react-native-gesture-handler": "^2.16.2",
@@ -30,6 +35,13 @@
     "react-native-screens": "^3.31.1",
     "react-native-splash-screen": "^3.3.0",
     "react-native-vector-icons": "^10.1.0"
+=======
+    "react-native": "0.73.6",
+    "react-native-gesture-handler": "^2.16.2",
+    "react-native-safe-area-context": "^4.10.1",
+    "react-native-screens": "^3.31.1",
+    "react-native-splash-screen": "^3.3.0"
+>>>>>>> d4f6541020528a58d7d0af5e92c5b66b3f53ba83
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
