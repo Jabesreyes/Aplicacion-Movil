@@ -1,49 +1,16 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { FontSize, Border, FontFamily, Color, Padding } from "../globalStyles";
-import react, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import firestore from '@react-native-firebase/firestore';
-import { withNavigation } from '@react-navigation/compat';
-
 
 const SignUp = () => {
-  const [nombre, setNombre] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [contrasena, setContrasena] = useState('');
-  const [confirmarContrasena, setConfirmarContrasena] = useState('');
-  const navigation = useNavigation();
-
-  const [mostrarContrasena, setMostrarContrasena] = useState(false);
-  const [mostrarConfirmarContrasena, setMostrarConfirmarContrasena] = useState(false);
-
-  const toggleMostrarContrasena = () => {
-    setMostrarContrasena(!mostrarContrasena);
-  };
-
-  const toggleMostrarConfirmarContrasena = () => {
-    setMostrarConfirmarContrasena(!mostrarConfirmarContrasena);
-  };
-
-  const handleRegistrar = () => {
-    navigation.navigate('Profile');
-    navigation.navigate('Profile', { nombre: nombre, correo: correo });
-  };
-
-
   return (
     <View style={styles.signUp}>
       <Text style={[styles.version100, styles.labelTypo1]}>Version 1.0.0</Text>
       <View style={[styles.frame, styles.frameLayout]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
-          <TextInput
-            style={[styles.nombre, styles.nombreLayout]}
-            value={nombre}
-            onChangeText={text => setNombre(text)}
-            placeholder="Nombre"
-          />
+          <Text style={[styles.nombre, styles.nombreLayout]}>Nombre</Text>
           <Image
             style={[styles.ionsearchSharpIcon, styles.nombreLayout]}
             contentFit="cover"
@@ -51,18 +18,10 @@ const SignUp = () => {
           />
         </View>
       </View>
-    <View style={styles.container}>
       <View style={[styles.frame1, styles.frameLayout]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
-          <TextInput
-            style={[styles.nombre, styles.nombreLayout]}
-            value={correo}
-            onChangeText={text => setCorreo(text)}
-            placeholder="Correo electrónico"
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
+          <Text style={[styles.nombre, styles.nombreLayout]}>Correo</Text>
           <Image
             style={[styles.ionsearchSharpIcon, styles.nombreLayout]}
             contentFit="cover"
@@ -70,87 +29,67 @@ const SignUp = () => {
           />
         </View>
       </View>
-    </View>
-    <View style={styles.container}>
       <View style={[styles.frame2, styles.framePosition]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
           <Text style={[styles.nombre, styles.nombreLayout]}>Contraseña</Text>
-          <TextInput
-            style={[styles.contrasenaInput, styles.nombreLayout]}
-            value={contrasena}
-            onChangeText={text => setContrasena(text)}
-            placeholder=" "
-            secureTextEntry={!mostrarContrasena}
-          />
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             contentFit="cover"
             source={require("../assets/vector@3x.png")}
           />
-          <TouchableOpacity onPress={toggleMostrarContrasena}>
-            <Image
-              style={[styles.visibilityIcon, styles.visibilityIconLayout]}
-              contentFit="cover"
-              source={mostrarContrasena ? require("../assets/vector1@3x.png") : require("../assets/visibility@3x.png")}
-            />
-          </TouchableOpacity>
+          <Image
+            style={[styles.visibilityIcon, styles.visibilityIconLayout]}
+            contentFit="cover"
+            source={require("../assets/visibility@3x.png")}
+          />
         </View>
       </View>
-     <View style={styles.container}>
+      <Image
+        style={[styles.vectorIcon1, styles.vectorIconLayout]}
+        contentFit="cover"
+        source={require("../assets/vector1@3x.png")}
+      />
+      <Image
+        style={[styles.vectorIcon2, styles.vectorIconLayout]}
+        contentFit="cover"
+        source={require("../assets/vector1@3x.png")}
+      />
       <View style={[styles.frame3, styles.framePosition]}>
         <View style={styles.searchPosition}>
           <View style={[styles.searchChild, styles.searchPosition]} />
           <Text style={[styles.nombre, styles.nombreLayout]}>
-            Confirmar contraseña
+            Confirmar contrasena
           </Text>
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={[styles.contrasenaInput, styles.inputLayout]}
-              value={confirmarContrasena}
-              onChangeText={text => setConfirmarContrasena(text)}
-              placeholder=" "
-              secureTextEntry={!mostrarConfirmarContrasena}
-            />
-          </View>
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             contentFit="cover"
-            source={require("../assets/vector@3x.png ")}
+            source={require("../assets/vector@3x.png")}
           />
-          <TouchableOpacity onPress={toggleMostrarConfirmarContrasena}>
-            <Image
-              style={[styles.visibilityIcon, styles.visibilityIconLayout]}
-              contentFit="cover"
-              source={mostrarConfirmarContrasena ? require("../assets/vector1@3x.png") : require("../assets/visibility@3x.png")}
-            />
-          </TouchableOpacity>
+          <Image
+            style={[styles.visibilityIcon, styles.visibilityIconLayout]}
+            contentFit="cover"
+            source={require("../assets/visibility@3x.png")}
+          />
         </View>
       </View>
-
-    <View style={styles.container}>
       <Text style={[styles.registroDeUsuario, styles.labelTypo]}>
         Registro de Usuario
       </Text>
       <View style={[styles.buttons, styles.insideFlexBox]}>
-        <TouchableOpacity onPress={handleRegistrar}>
-          <View style={styles.insideFlexBox}>
-            <Image
-              style={styles.chevronIconLayout}
-              contentFit="cover"
-              source={require("../assets/chevronleft@3x.png")}
-            />
-            <Text style={[styles.label, styles.labelTypo, styles.registrarText]}>Registrar</Text>
-            <Image
-              style={[styles.chevronRightIcon, styles.chevronIconLayout]}
-              contentFit="cover"
-              source={require("../assets/chevronright@3x.png")}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
-    </View>
+        <View style={styles.insideFlexBox}>
+          <Image
+            style={styles.chevronIconLayout}
+            contentFit="cover"
+            source={require("../assets/chevronleft@3x.png")}
+          />
+          <Text style={[styles.label, styles.labelTypo]}>Registrar</Text>
+          <Image
+            style={[styles.chevronRightIcon, styles.chevronIconLayout]}
+            contentFit="cover"
+            source={require("../assets/chevronright@3x.png")}
+          />
+        </View>
       </View>
       <Image
         style={[styles.iconmdiArrowBack, styles.visibilityIconLayout]}
@@ -160,14 +99,13 @@ const SignUp = () => {
       <Text
         style={[styles.yaEresMienbroContainer, styles.registroDeUsuarioFlexBox]}
       >
-        <Text style={styles.yaEresMienbro}>{`¿Ya eres miembro? `}</Text>
+        <Text style={styles.yaEresMienbro}>{`¿Ya eres mienbro? `}</Text>
         <Text style={styles.ingresa}>Ingresa</Text>
       </Text>
     </View>
   );
 };
 
-//------------------------------------------------ESTILOS------------------------------------------------
 const styles = StyleSheet.create({
   iconPosition: {
     display: "none",
@@ -192,7 +130,6 @@ const styles = StyleSheet.create({
     height: "100%",
     position: "absolute",
     width: "100%",
-    flexDirection: 'row',
   },
   nombreLayout: {
     opacity: 0.8,
@@ -215,11 +152,6 @@ const styles = StyleSheet.create({
     width: 24,
     position: "absolute",
     overflow: "hidden",
-  },
-  contrasenaInput: {
-    flex: 1,
-    position: "center",
-    marginLeft: 38
   },
   vectorIconLayout: {
     left: "88.8%",
@@ -248,7 +180,58 @@ const styles = StyleSheet.create({
     textAlign: "left",
     position: "absolute",
   },
-
+  notchIcon: {
+    top: -2,
+    right: 78,
+    bottom: 16,
+    left: 78,
+    maxHeight: "100%",
+    maxWidth: "100%",
+    overflow: "hidden",
+  },
+  batteryIcon: {
+    right: 0,
+    width: 24,
+    height: 11,
+    top: 0,
+    position: "absolute",
+  },
+  wifiIcon: {
+    width: 15,
+    height: 11,
+  },
+  mobileSignalIcon: {
+    width: 17,
+    height: 11,
+  },
+  recordingIndicatorIcon: {
+    top: -9,
+    right: 56,
+    width: 6,
+    height: 6,
+  },
+  rightSide: {
+    top: 17,
+    right: 15,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  leftSideIcon: {
+    top: 12,
+    left: 21,
+    width: 54,
+    height: 21,
+    position: "absolute",
+  },
+  statusBarIphoneXOrNewe: {
+    left: 0,
+    width: 375,
+    height: 44,
+    top: 0,
+    position: "absolute",
+    overflow: "hidden",
+  },
   version100: {
     top: 772,
     left: 135,
@@ -300,7 +283,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   visibilityIcon: {
-    left: 178,
+    left: 234,
     top: 10,
     height: 24,
   },
@@ -337,17 +320,16 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   buttons: {
-    top: 550,
-    left: 130,
+    top: 587,
+    left: 144,
     borderRadius: Border.br_9xs,
     backgroundColor: "#1fb9fc",
     height: 36,
     justifyContent: "center",
-    padding: 20,
-    width: 110,
+    paddingHorizontal: Padding.p_xs,
+    paddingVertical: Padding.p_base,
     position: "absolute",
-    alignItems: 'center',
-    flex: 1,
+    overflow: "hidden",
   },
   iconmdiArrowBack: {
     top: 53,
@@ -373,11 +355,6 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
   },
-  registrarText: {
-    color: 'white',
-    position: 'absolute',
-    alignItems: "center",
-  },
 });
 
-export default withNavigation(SignUp);
+export default SignUp;

@@ -4,6 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import SignUp from "./components/signUp";
 import Profile from "./components/profile";
+import ListaDeCitas from "./components/listaDeCitas"
+import CrearCita from "./components/crearCita"
+import DetallesDeLaCita from "./components/detallesCita"
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
@@ -18,7 +21,7 @@ const App = () => {
     "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
     "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
     "Nunito-Bold": require("./assets/fonts/Nunito-Bold.ttf"),
-    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf "),
+    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
     "Inter-Bold": require("./assets/fonts/Inter-Bold.ttf"),
   });
 
@@ -28,14 +31,16 @@ const App = () => {
 
   return (
     <>
-     <NavigationContainer>
-  <Stack.Navigator initialRouteName="SignUp">
-    <Stack.Screen name="SignUp" component={SignUp} />
-    <Stack.Screen name="Profile" component={Profile} />
-  </Stack.Navigator>
-</NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="SignUp">
+          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="listaDeCitas" component={ListaDeCitas} />
+          <Stack.Screen name="crearCita" component={CrearCita} />
+          <Stack.Screen name="detallesCita" component={DetallesDeLaCita} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
 export default App;
-
