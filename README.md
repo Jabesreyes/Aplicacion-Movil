@@ -97,10 +97,10 @@ https://www.figma.com/file/uRevjAh29D35z1gGrlywag/Aplicaci%C3%B3n-movil---Asilo?
 https://www.behance.net/gallery/69828589/Asilo-de-ancianos-(Eleam-Delmi)?tracking_source=search_projects|asilo&l=185 https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es
 
 ## Manual de Usuario:
-https://udbedu-my.sharepoint.com/:b:/g/personal/hm232507_alumno_udb_edu_sv/ETjeDgQCRo1KnTo7cIhAo3kBKUkXZBkN9vbDIL1ieQmqlA?e=v0GUV6
+https://www.canva.com/design/DAGE-Uq6p-A/6RZA4A09MoaihZQdIjoXyg/edit?utm_content=DAGE-Uq6p-A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Manual Tecnico:
-https://udbedu-my.sharepoint.com/:b:/g/personal/fr230108_alumno_udb_edu_sv/ES0uNa8qOe5AmSXDms7uQ1cBIfk4AIGMy0yKEdN6c0keig?e=VADNpl
+https://www.canva.com/design/DAGFFEMYbHE/swNWT3v2FA_dXyhjkAnzgw/edit?utm_content=DAGFFEMYbHE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Video explicativo:
-https://udbedu-my.sharepoint.com/:f:/g/personal/hm232507_alumno_udb_edu_sv/ErcIjLyrwadBmBL-snAYXSIB8sGD55H7lQCCoYGYACbGJg?e=hgXKJO
+https://udbedu-my.sharepoint.com/:f:/g/personal/hm232507_alumno_udb_edu_sv/Emz4tgE8uvdMkmrCDoD8GdsBqEGwTOwGdRZZnvpNxQ7Z4g?e=ERmFQX
